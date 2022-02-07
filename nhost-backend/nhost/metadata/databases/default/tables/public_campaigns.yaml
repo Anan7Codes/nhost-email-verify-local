@@ -1,0 +1,34 @@
+table:
+  name: campaigns
+  schema: public
+select_permissions:
+- permission:
+    columns:
+    - DrawDate
+    - GiftDescription
+    - GiftName
+    - Image
+    - Price
+    - ProductDescription
+    - ProductName
+    - SoldOut
+    - SoldOutCoupons
+    - TotalCoupons
+    - id
+    filter: {}
+  role: public
+- permission:
+    columns:
+    - SoldOut
+    - DrawDate
+    - Price
+    - SoldOutCoupons
+    - TotalCoupons
+    - GiftDescription
+    - GiftName
+    - ProductDescription
+    - ProductName
+    - Image
+    - id
+    filter: {}
+  role: user

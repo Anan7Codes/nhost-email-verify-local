@@ -1,0 +1,43 @@
+table:
+  name: profiles
+  schema: public
+insert_permissions:
+- permission:
+    backend_only: false
+    check: {}
+    columns:
+    - amountSpent
+    - countryOfResidence
+    - gender
+    - nationality
+    - phoneNumber
+    - shippingAddress
+    set:
+      user_id: x-hasura-user-id
+  role: user
+select_permissions:
+- permission:
+    columns:
+    - user_id
+    - gender
+    - phoneNumber
+    - nationality
+    - countryOfResidence
+    - shippingAddress
+    - amountSpent
+    filter:
+      user_id:
+        _eq: X-Hasura-User-Id
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - countryOfResidence
+    - gender
+    - phoneNumber
+    - shippingAddress
+    filter:
+      user_id:
+        _eq: X-Hasura-User-Id
+  role: user
